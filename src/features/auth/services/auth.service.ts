@@ -7,5 +7,5 @@ export const signup = async (payload: SignupRequest) => {
 };
 
 export const signin = async (payload: SigninRequest) => {
-    return await baseRequest.post<SigninResponse>("/login", payload);
+    return await baseRequest.post<SigninResponse>("/signin", payload);
 };
