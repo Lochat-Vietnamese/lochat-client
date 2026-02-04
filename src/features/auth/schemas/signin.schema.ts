@@ -11,7 +11,7 @@ export const SigninSchema = z.object({
         .optional(),
     password: z
         .string()
-        // .min(8, { message: "Mật khẩu phải có ít nhất 8 ký tự" }),
+        .min(8, { message: "Mật khẩu phải có ít nhất 8 ký tự" }),
 })
 .refine(
     (data) => !!data.username || !!data.email,
