@@ -1,0 +1,15 @@
+{
+    "auth": {
+        "signin": {
+            "form": {
+                "title": "Đăng nhập",
+                "usernameOrEmailField":{
+                    "label": "Tên đăng nhập hoặc email",
+                    "placeholder": "Ten dang nhap hoac email"
+                },
+                "passwordField": "Mật khẩu",
+                "submit": "Đăng nhập"
+            }
+        }
+    }
+}

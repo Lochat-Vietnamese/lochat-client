@@ -10,6 +10,7 @@ import { ChevronDownIcon } from "lucide-react";
 import { format } from "date-fns";
 import { SignupSchema } from "@/features/auth/schemas/signup.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "react-i18next";
 
 type SignupFormProps = {
     loading: boolean;
@@ -17,6 +18,8 @@ type SignupFormProps = {
 }
 
 export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
+    const { t } = useTranslation(["auth", "error", "validation"]);
+
     const { register, handleSubmit, control, formState: { errors } } = useForm<SignupRequest>({
         resolver: zodResolver(SignupSchema)
     });
@@ -24,15 +27,15 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Đăng ký</CardTitle>
+                <CardTitle>{t("auth:signup.form.title")}</CardTitle>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="grid grid-rows-3 gap-2">
                     <div className="w-full grid grid-rows-2">
-                        <Label>Tên đăng nhập:</Label>
+                        <Label>{t("auth:signup.form.field.username.label")}</Label>
                         <Input
                             type="text"
-                            placeholder="Tên đăng nhập"
+                            placeholder={t("auth:signup.form.field.username.placeholder")}
                             {...register("username")}
                         />
                         {errors.username && (
@@ -43,10 +46,10 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                     </div>
 
                     <div className="w-full grid grid-rows-2">
-                        <Label>email:</Label>
+                        <Label>{t("auth:signup.form.field.email.label")}</Label>
                         <Input
                             type="text"
-                            placeholder="Email"
+                            placeholder={t("auth:signup.form.field.email.placeholder")}
                             {...register("email")}
                         />
                         {errors.email && (
@@ -57,10 +60,10 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                     </div>
 
                     <div className="w-full grid grid-rows-2">
-                        <Label>Mật khẩu:</Label>
+                        <Label>{t("auth:signup.form.field.password.label")}</Label>
                         <Input
                             type="password"
-                            placeholder="Mật khẩu"
+                            placeholder={t("auth:signup.form.field.password.placeholder")}
                             {...register("password")}
                         />
                         {errors.password && (
@@ -71,10 +74,10 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                     </div>
 
                     <div className="w-full grid grid-rows-2">
-                        <Label>Tên tài khoản:</Label>
+                        <Label>{t("auth:signup.form.field.nickname.label")}</Label>
                         <Input
                             type="text"
-                            placeholder="Tên tài khoản"
+                            placeholder={t("auth:signup.form.field.nickname.placeholder")}
                             {...register("profile.nickname")}
                         />
                         {errors.profile?.nickname && (
@@ -85,10 +88,10 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                     </div>
 
                     <div className="w-full grid grid-rows-2">
-                        <Label>Số điện thoại:</Label>
+                        <Label>{t("auth:signup.form.field.phone_number.label")}</Label>
                         <Input
                             type="text"
-                            placeholder="Số điện thoại"
+                            placeholder={t("auth:signup.form.field.phone_number.placeholder")}
                             {...register("profile.phone_number")}
                         />
                         {errors.profile?.phone_number && (
@@ -99,7 +102,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                     </div>
 
                     <div className="w-full grid grid-rows-2">
-                        <Label>Ngày sinh:</Label>
+                        <Label>{t("auth:signup.form.field.dob.label")}</Label>
                         <Controller
                             control={control}
                             name="profile.dob"
@@ -109,7 +112,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                                         <Button variant="outline">
                                             {field.value
                                                 ? format(field.value, "dd/MM/yyyy")
-                                                : "Ngày sinh"}
+                                                : t("auth:signup.form.field.dob.placeholder")}
                                             <ChevronDownIcon className="ml-2 h-4 w-4" />
                                         </Button>
                                     </PopoverTrigger>
@@ -138,7 +141,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                             type="submit"
                             disabled={loading}
                         >
-                            {loading ? "Đang đăng ký" : "Đăng ký"}
+                            {loading ? t("auth:signup.form.button.submit.loading") : t("auth:signup.form.button.submit.idle")}
                         </Button>
                     </div>
                 </form>

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 
 type SigninFormProps = {
@@ -14,7 +15,7 @@ type SigninFormProps = {
 }
 
 export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
-
+    const { t } = useTranslation(["auth", "error", "validation"]);
 
     const {
         register,
@@ -30,16 +31,16 @@ export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Đăng nhập</CardTitle>
+                <CardTitle>{t("auth:signin.form.title")}</CardTitle>
             </CardHeader>
 
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="grid grid-rows-3 gap-2">
                     <div className="w-full grid grid-rows-2">
-                        <Label>Tên đăng nhập hoặc email:</Label>
+                        <Label>{t("auth:signin.form.field.username.label")}</Label>
                         <Input
                             type="text"
-                            placeholder="Tên đăng nhập hoặc email"
+                            placeholder={t("auth:signin.form.field.username.placeholder")}
                             {...register(
                                 "usernameOrEmail",
                                 {
@@ -55,10 +56,10 @@ export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
                     </div>
 
                     <div className="w-full grid grid-rows-2">
-                        <Label>Mật khẩu:</Label>
+                        <Label>{t("auth:signin.form.field.password.label")}</Label>
                         <Input
                             type="password"
-                            placeholder="Mật khẩu"
+                            placeholder={t("auth:signin.form.field.password.placeholder")}
                             {...register(
                                 "password",
                                 {
@@ -83,7 +84,7 @@ export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
                             type="submit"
                             disabled={loading}
                         >
-                            {loading ? "Đang đăng nhập" : "Đăng nhập"}
+                            {loading ? t("auth:signin.form.button.submit.loading") : t("auth:signin.form.button.submit.idle")}
                         </Button>
                     </div>
                 </form>
