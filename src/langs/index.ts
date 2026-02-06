@@ -7,6 +7,9 @@ import viCommonDict from "@/langs/locales/vi/common.json";
 import viAuthDict from "@/langs/locales/vi/auth.json";
 
 import enCommonDict from "@/langs/locales/en/common.json";
+// import enErrorDict from "@/langs/locales/en/error.json";
+// import enValidationDict from "@/langs/locales/en/validation.json";
+import enAuthDict from "@/langs/locales/en/auth.json";
 
 
 i18n.use(initReactI18next).init({
@@ -22,6 +25,9 @@ i18n.use(initReactI18next).init({
         },
         en: {
             common: enCommonDict,
+            // error: enErrorDict,
+            // validation: enValidationDict,
+            auth: enAuthDict,
         },
     },
 
