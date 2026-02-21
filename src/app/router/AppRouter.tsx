@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { ROUTES } from "@/constants/routes";
-import { SigninPage } from "@/modules/auth/pages/SigninPage";
-import { SignupPage } from "@/modules/auth/pages/SignupPage";
+import { SigninPage, SignupPage } from "@/modules/auth";
+
 
 export const AppRouter = () => {
     return (
