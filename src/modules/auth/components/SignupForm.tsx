@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Calendar } from "@/components/ui/calendar";
 import { ChevronDownIcon } from "lucide-react";
 import { format } from "date-fns";
-import { SignupSchema } from "@/features/auth/schemas/signup.schema";
+import { SignupSchema } from "@/modules/auth/schemas/signup.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
 

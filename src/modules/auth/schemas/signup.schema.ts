@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { CreateProfileSchema } from "@/features/profile/schemas/profile.schema";
+import { CreateProfileSchema } from "@/modules/profile/schemas/profile.schema";
 
 export const SignupSchema = z.object({
     username: z.string().regex(/^[a-zA-Z0-9]+$/, "Tên tài khoản chỉ được chứa chữ và số").min(5, { message: "Tên đăng nhập phải có ít nhất 5 ký tự" }),

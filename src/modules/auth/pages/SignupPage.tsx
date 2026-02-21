@@ -1,6 +1,6 @@
-import { useSignup } from "@/features/auth/hooks/useSignup";
-import type { SignupRequest } from "@/features/auth/types/signup.type";
-import { SignupForm } from "@/features/auth/components/SignupForm";
+import { useSignup } from "@/modules/auth/hooks/useSignup";
+import type { SignupRequest } from "@/modules/auth/types/signup.type";
+import { SignupForm } from "@/modules/auth/components/SignupForm";
 
 export const SignupPage = () => {
     const { mutate, isPending } = useSignup();

@@ -1,6 +1,6 @@
-import { SigninForm } from "@/features/auth/components/SigninForm";
-import { useSignin } from "@/features/auth/hooks/useSignin";
-import { SigninSchema } from "@/features/auth/schemas/signin.schema";
+import { SigninForm } from "@/modules/auth/components/SigninForm";
+import { useSignin } from "@/modules/auth/hooks/useSignin";
+import { SigninSchema } from "@/modules/auth/schemas/signin.schema";
 
 export const SigninPage = () => {
     const { mutate, isPending } = useSignin();
