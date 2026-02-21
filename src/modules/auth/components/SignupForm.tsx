@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { SignupRequest } from "../types/signup.type";
+import type { SignupRequest } from "@/modules/auth/types/signup.type";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Controller, useForm } from "react-hook-form";

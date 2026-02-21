@@ -1,6 +1,5 @@
 import type { SignupType } from "@/modules/auth/schemas/signup.schema";
-import type { AccountResponse } from "@/types/account.type";
-import type { ApiResponse } from "@/types/apiRespone.type";
+import type { AccountResponse, ApiResponse } from "@/modules/common";
 
 export type SignupRequest = SignupType;
 export type SignupResponse = ApiResponse<AccountResponse>;
