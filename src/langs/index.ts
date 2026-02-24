@@ -1,14 +1,14 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import viCommonDict from "@/langs/locales/vi/common.json";
 // import viErrorDict from "@/langs/locales/vi/error.json";
 // import viValidationDict from "@/langs/locales/vi/validation.json";
+import viHomeDict from "@/langs/locales/vi/home.json";
 import viAuthDict from "@/langs/locales/vi/auth.json";
 
-import enCommonDict from "@/langs/locales/en/common.json";
 // import enErrorDict from "@/langs/locales/en/error.json";
 // import enValidationDict from "@/langs/locales/en/validation.json";
+import enHomeDict from "@/langs/locales/en/home.json";
 import enAuthDict from "@/langs/locales/en/auth.json";
 
 
@@ -18,21 +18,21 @@ i18n.use(initReactI18next).init({
 
     resources: {
         vi: {
-            common: viCommonDict,
             // error: viErrorDict,
             // validation: viValidationDict,
+            home: viHomeDict,
             auth: viAuthDict,
         },
         en: {
-            common: enCommonDict,
             // error: enErrorDict,
             // validation: enValidationDict,
+            home: enHomeDict,
             auth: enAuthDict,
         },
     },
 
-    ns: ["common", "error", "validation", "auth"],
-    defaultNS: "common",
+    ns: ["home", "error", "validation", "auth"],
+    defaultNS: "home",
 
     interpolation: {
         escapeValue: false,

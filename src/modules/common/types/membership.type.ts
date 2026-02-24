@@ -1,5 +1,4 @@
-import type { ConversationResponse } from "@/types/conversation.type";
-import type { ProfileResponse } from "@/types/profile.type";
+import type { ConversationResponse, ProfileResponse } from "@/modules/common";
 
 
 export interface MembershipResponse {

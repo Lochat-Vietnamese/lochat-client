@@ -1,0 +1,14 @@
+{
+    "menu": {
+        "name": "Lochat",
+        "navigator": {
+            "introduction": "Introduction",
+            "projects": "Projects",
+            "langs_dropdown_label": "Chose your language",
+            "auth_actions": {
+                "signin": "Sign in",
+                "signup": "Sign up"
+            }
+        }
+    }
+}

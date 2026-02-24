@@ -1,2 +1,2 @@
-export { SigninPage } from "@/modules/auth/pages/SigninPage";
-export { SignupPage } from "@/modules/auth/pages/SignupPage";
+export * from "@/modules/auth/pages/SigninPage";
+export * from "@/modules/auth/pages/SignupPage";

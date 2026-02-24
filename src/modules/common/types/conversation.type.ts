@@ -1,5 +1,5 @@
 import type { ConversationType } from "@/enums/conversation.enum";
-import type { ProfileResponse } from "@/types/profile.type";
+import type { ProfileResponse } from "@/modules/common";
 
 export interface ConversationResponse {
     id: string;

@@ -1,8 +1,5 @@
-import type { ConversationResponse } from "@/types/conversation.type";
-import type { MembershipResponse } from "@/types/membership.type";
 import type { MessageType } from "@/enums/message.enum";
-import type { MediaResponse } from "@/types/media.type";
-
+import type { ConversationResponse, MediaResponse, MembershipResponse } from "@/modules/common";
 
 export interface MessageResponse {
     id: string;

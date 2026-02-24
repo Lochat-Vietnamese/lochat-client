@@ -1,5 +1,5 @@
 import type { MediaType } from "@/enums/media.enum";
-import type { MembershipResponse } from "@/types/membership.type";
+import type { MembershipResponse } from "@/modules/common";
 
 export interface MediaResponse {
     id: string;

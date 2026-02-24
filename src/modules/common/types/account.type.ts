@@ -1,4 +1,4 @@
-import type { ProfileResponse } from "@/types/profile.type";
+import type { ProfileResponse } from "@/modules/common";
 
 export interface AccountResponse {
     id: string;

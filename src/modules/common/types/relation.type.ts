@@ -1,5 +1,5 @@
 import type { RelationStatus, RelationType } from "@/enums/relation.enum";
-import type { ProfileResponse } from "@/types/profile.type";
+import type { ProfileResponse } from "@/modules/common";
 
 export interface RelationResponse {
     id: string;
