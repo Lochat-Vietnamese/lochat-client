@@ -23,19 +23,19 @@ export const HomeLayout = () => {
                     <NavigationMenu className="flex gap-4 items-center">
                         <NavigationMenuList>
                             <NavigationMenuItem className="mr-4">
-                                <NavigationMenuLink className="hover:bg-transparent font-semibold! text-foreground! text-xl" href="/">
+                                <NavigationMenuLink className="bg-transparent! font-semibold! text-foreground! text-xl" href="/">
                                     {t("home:menu.name")}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
 
                             <NavigationMenuItem>
-                                <NavigationMenuLink className="hover:bg-transparent hover:text-primary! text-foreground! text-md" href="#">
+                                <NavigationMenuLink className="bg-transparent! hover:text-primary! text-foreground! text-md" href="#">
                                     {t("home:menu.navigator.introduction")}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
 
                             <NavigationMenuItem>
-                                <NavigationMenuLink className="hover:bg-transparent hover:text-primary! text-foreground! text-md" href="#">
+                                <NavigationMenuLink className="bg-transparent! hover:text-primary! text-foreground! text-md" href="#">
                                     {t("home:menu.navigator.projects")}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>

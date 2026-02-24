@@ -25,125 +25,149 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
     });
 
     return (
-        <Card>
-            <CardHeader>
+        <Card className="bg-card text-card-foreground lg:w-1/4 md:w-1/2 w-2/3 border-border shadow-border shadow-md">
+            <CardHeader className="text-center text-xl">
                 <CardTitle>{t("auth:signup.form.title")}</CardTitle>
             </CardHeader>
             <CardContent>
-                <form onSubmit={handleSubmit(onSubmit)} className="grid grid-rows-3 gap-2">
-                    <div className="w-full grid grid-rows-2">
-                        <Label>{t("auth:signup.form.field.username.label")}</Label>
-                        <Input
-                            type="text"
-                            placeholder={t("auth:signup.form.field.username.placeholder")}
-                            {...register("username")}
-                        />
-                        {errors.username && (
-                            <p className="text-sm text-destructive">
-                                {errors.username.message}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="w-full grid grid-rows-2">
-                        <Label>{t("auth:signup.form.field.email.label")}</Label>
-                        <Input
-                            type="text"
-                            placeholder={t("auth:signup.form.field.email.placeholder")}
-                            {...register("email")}
-                        />
-                        {errors.email && (
-                            <p className="text-sm text-destructive">
-                                {errors.email.message}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="w-full grid grid-rows-2">
-                        <Label>{t("auth:signup.form.field.password.label")}</Label>
-                        <Input
-                            type="password"
-                            placeholder={t("auth:signup.form.field.password.placeholder")}
-                            {...register("password")}
-                        />
-                        {errors.password && (
-                            <p className="text-sm text-destructive">
-                                {errors.password.message}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="w-full grid grid-rows-2">
-                        <Label>{t("auth:signup.form.field.nickname.label")}</Label>
-                        <Input
-                            type="text"
-                            placeholder={t("auth:signup.form.field.nickname.placeholder")}
-                            {...register("profile.nickname")}
-                        />
-                        {errors.profile?.nickname && (
-                            <p className="text-sm text-destructive">
-                                {errors.profile?.nickname.message}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="w-full grid grid-rows-2">
-                        <Label>{t("auth:signup.form.field.phone_number.label")}</Label>
-                        <Input
-                            type="text"
-                            placeholder={t("auth:signup.form.field.phone_number.placeholder")}
-                            {...register("profile.phone_number")}
-                        />
-                        {errors.profile?.phone_number && (
-                            <p className="text-sm text-destructive">
-                                {errors.profile?.phone_number.message}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="w-full grid grid-rows-2">
-                        <Label>{t("auth:signup.form.field.dob.label")}</Label>
-                        <Controller
-                            control={control}
-                            name="profile.dob"
-                            render={({ field }) => (
-                                <Popover>
-                                    <PopoverTrigger asChild>
-                                        <Button variant="outline">
-                                            {field.value
-                                                ? format(field.value, "dd/MM/yyyy")
-                                                : t("auth:signup.form.field.dob.placeholder")}
-                                            <ChevronDownIcon className="ml-2 h-4 w-4" />
-                                        </Button>
-                                    </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-0">
-                                        <Calendar
-                                            mode="single"
-                                            selected={field.value}
-                                            onSelect={field.onChange}
-                                            captionLayout="dropdown"
-                                        />
-                                    </PopoverContent>
-                                </Popover>
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                    <div className="w-full flex flex-col gap-2">
+                        <Label className="text-md">{t("auth:signup.form.field.username.label")}</Label>
+                        <div>
+                            <Input
+                                className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
+                                type="text"
+                                placeholder={t("auth:signup.form.field.username.placeholder")}
+                                {...register("username")}
+                            />
+                            {errors.username && (
+                                <p className="text-xs text-destructive pt-1">
+                                    {errors.username.message}
+                                </p>
                             )}
-                        />
-
-                        {errors.profile?.dob && (
-                            <p className="text-sm text-destructive">
-                                {errors.profile?.dob.message}
-                            </p>
-                        )}
+                        </div>
                     </div>
 
-                    <div className="grid grid-rows-1">
-                        <Button
-                            className="w-full fill-primary text-primary-foreground"
-                            type="submit"
-                            disabled={loading}
-                        >
-                            {loading ? t("auth:signup.form.button.submit.loading") : t("auth:signup.form.button.submit.idle")}
-                        </Button>
+                    <div className="w-full flex flex-col gap-2">
+                        <Label className="text-md">{t("auth:signup.form.field.email.label")}</Label>
+                        <div>
+                            <Input
+                                className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
+                                type="text"
+                                placeholder={t("auth:signup.form.field.email.placeholder")}
+                                {...register("email")}
+                            />
+                            {errors.email && (
+                                <p className="text-xs text-destructive pt-1">
+                                    {errors.email.message}
+                                </p>
+                            )}
+                        </div>
                     </div>
+
+                    <div className="w-full flex flex-col gap-2">
+                        <Label className="text-md">{t("auth:signup.form.field.password.label")}</Label>
+                        <div>
+                            <Input
+                                className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
+                                type="password"
+                                placeholder={t("auth:signup.form.field.password.placeholder")}
+                                {...register("password")}
+                            />
+                            {errors.password && (
+                                <p className="text-xs text-destructive pt-1">
+                                    {errors.password.message}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-2">
+                        <Label className="text-md">{t("auth:signup.form.field.nickname.label")}</Label>
+                        <div>
+                            <Input
+                                className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
+                                type="text"
+                                placeholder={t("auth:signup.form.field.nickname.placeholder")}
+                                {...register("profile.nickname")}
+                            />
+                            {errors.profile?.nickname && (
+                                <p className="text-xs text-destructive pt-1">
+                                    {errors.profile?.nickname.message}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-2">
+                        <Label className="text-md">{t("auth:signup.form.field.phone_number.label")}</Label>
+                        <div>
+                            <Input
+                                className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
+                                type="text"
+                                placeholder={t("auth:signup.form.field.phone_number.placeholder")}
+                                {...register("profile.phone_number")}
+                            />
+                            {errors.profile?.phone_number && (
+                                <p className="text-xs text-destructive pt-1">
+                                    {errors.profile?.phone_number.message}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-2">
+                        <Label className="text-md">{t("auth:signup.form.field.dob.label")}</Label>
+                        <div>
+                            <Controller
+                                control={control}
+                                name="profile.dob"
+                                render={({ field }) => (
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                            <Button className="bg-muted! text-muted-foreground! text-sm! justify-between! border-border! focus:border-ring! focus:text-accent! data-[state=open]:border-ring! data-[state=open]:text-accent! ring-0! outline-none! w-full">
+                                                {field.value
+                                                    ? format(field.value, "dd/MM/yyyy")
+                                                    : t("auth:signup.form.field.dob.placeholder")}
+                                                <ChevronDownIcon size="100%" />
+                                            </Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="bg-popover! text-popover-foreground! border-border! w-fit rounded-xl">
+                                            <Calendar
+                                                className="text-inherit! bg-inherit!"
+                                                classNames={{
+                                                    day: "bg-card! text-card-foreground! hover:bg-accent!",
+                                                    day_selected: "bg-primary! text-primary-foreground! hover:bg-primary!",
+                                                    day_today: "border! border-primary! text-primary!",
+                                                    // day_outside: "bg-card! text-card-foreground! hover:bg-accent!",
+                                                    nav_button: "bg-card! text-card-foreground! hover:bg-primary! hover:text-primary-foreground!",
+                                                }}
+                                                mode="single"
+                                                selected={field.value}
+                                                onSelect={field.onChange}
+                                                captionLayout="dropdown"
+                                                timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone}
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
+                                )}
+                            />
+
+                            {errors.profile?.dob && (
+                                <p className="text-xs text-destructive pt-1">
+                                    {errors.profile?.dob.message}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+
+                    <Button
+                        className="w-full bg-primary! text-primary-foreground! hover:bg-primary/90! hover:border-ring! hover:text-primary-foreground/90 outline-none!"
+                        type="submit"
+                        disabled={loading}
+                    >
+                        {loading ? t("auth:signup.form.button.submit.loading") : t("auth:signup.form.button.submit.idle")}
+                    </Button>
                 </form>
             </CardContent>
         </Card>
