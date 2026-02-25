@@ -1,0 +1,58 @@
+{
+    "signin": {
+        "username": {
+            "type": "Invalid username",
+            "regex": "Username can only contain letters and numbers",
+            "min": "Username must be at least {{min}} characters"
+        },
+        "email": {
+            "type": "Invalid email"
+        },
+        "password": {
+            "required": "Password is required"
+        },
+        "refine": {
+            "message": "Username or email is required"
+        }
+    },
+    "signup": {
+        "username": {
+            "type": "Invalid username",
+            "regex": "Username can only contain letters and numbers",
+            "min": "Username must be at least {{min}} characters",
+            "required": "Username is required"
+        },
+        "email": {
+            "type": "Invalid email",
+            "required": "Email is required"
+        },
+        "password": {
+            "type": "Invalid password",
+            "min": "Password must be at least {{min}} characters",
+            "required": "Password is required"
+        },
+        "nickname": {
+            "type": "Invalid nickname",
+            "required": "Nickname is required",
+            "min": "Nickname must be at least {{min}} characters",
+            "regex": "Nickname can only contain letters, numbers and spaces"
+        },
+        "phone_number": {
+            "type": "Invalid phone number",
+            "regex": "Phone number can only contain digits",
+            "min": "Phone number must be at least {{min}} characters",
+            "max": "Phone number must not exceed {{max}} characters",
+            "required": "Phone number is required"
+        },
+        "dob": {
+            "type": "Invalid date of birth",
+            "required": "Date of birth is required",
+            "refine": {
+                "message": "Must be at least {{age}} years old"
+            }
+        },
+        "avatar_url": {
+            "type": "Invalid URL"
+        }
+    }
+}

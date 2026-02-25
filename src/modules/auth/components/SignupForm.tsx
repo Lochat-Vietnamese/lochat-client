@@ -110,7 +110,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                             />
                             {errors.profile?.phone_number && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {t(errors.profile?.phone_number.message?.split("$")[0] as string, { min: errors.profile?.phone_number.message?.split("$")[1] })}
+                                    {t(errors.profile?.phone_number.message?.split("$")[0] as string, { min: errors.profile?.phone_number.message?.split("$")[1], max: errors.profile?.phone_number.message?.split("$")[1] })}
                                 </p>
                             )}
                         </div>
