@@ -1,26 +1,5 @@
 {
-    "signin": {
-        "form": {
-            "title": "Đăng nhập",
-            "field": {
-                "username": {
-                    "label": "Tên đăng nhập hoặc email",
-                    "placeholder": "Tên đăng nhập hoặc email"
-                },
-                "password": {
-                    "label": "Mật khẩu",
-                    "placeholder": "Mật khẩu"
-                }
-            },
-            "button": {
-                "submit": {
-                    "idle": "Đăng nhập",
-                    "loading": "Đang đăng nhập"
-                }
-            }
-        }
-    },
-    "signup": {
+    "sect_main": {
         "form": {
             "title": "Đăng ký",
             "field": {
@@ -53,6 +32,9 @@
                 "submit": {
                     "idle": "Đăng ký",
                     "loading": "Đang đăng ký"
+                },
+                "signin_navigator": {
+                    "idle": "Đã có tài khoản?"
                 }
             }
         }

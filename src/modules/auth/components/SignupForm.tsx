@@ -21,103 +21,103 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
     const { t } = useTranslation(["auth", "error", "validation"]);
 
     const { register, handleSubmit, control, formState: { errors } } = useForm<SignupRequest>({
-        resolver: zodResolver(SignupSchema)
+        resolver: zodResolver(SignupSchema),
     });
 
     return (
         <Card className="bg-card text-card-foreground lg:w-1/4 md:w-1/2 w-2/3 border-border shadow-border shadow-md">
             <CardHeader className="text-center text-xl">
-                <CardTitle>{t("auth:signup.form.title")}</CardTitle>
+                <CardTitle>{t("signup:sect_main.form.title")}</CardTitle>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signup.form.field.username.label")}</Label>
+                        <Label className="text-md">{t("signup:sect_main.form.field.username.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
                                 type="text"
-                                placeholder={t("auth:signup.form.field.username.placeholder")}
+                                placeholder={t("signup:sect_main.form.field.username.placeholder")}
                                 {...register("username")}
                             />
                             {errors.username && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {errors.username.message}
+                                    {t(errors.username.message?.split("$")[0] as string, { min: errors.username.message?.split("$")[1] })}
                                 </p>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signup.form.field.email.label")}</Label>
+                        <Label className="text-md">{t("signup:sect_main.form.field.email.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
                                 type="text"
-                                placeholder={t("auth:signup.form.field.email.placeholder")}
+                                placeholder={t("signup:sect_main.form.field.email.placeholder")}
                                 {...register("email")}
                             />
                             {errors.email && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {errors.email.message}
+                                    {t(errors.email.message as string)}
                                 </p>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signup.form.field.password.label")}</Label>
+                        <Label className="text-md">{t("signup:sect_main.form.field.password.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
                                 type="password"
-                                placeholder={t("auth:signup.form.field.password.placeholder")}
+                                placeholder={t("signup:sect_main.form.field.password.placeholder")}
                                 {...register("password")}
                             />
                             {errors.password && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {errors.password.message}
+                                    {t(errors.password.message?.split("$")[0] as string, { min: errors.password.message?.split("$")[1] })}
                                 </p>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signup.form.field.nickname.label")}</Label>
+                        <Label className="text-md">{t("signup:sect_main.form.field.nickname.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
                                 type="text"
-                                placeholder={t("auth:signup.form.field.nickname.placeholder")}
+                                placeholder={t("signup:sect_main.form.field.nickname.placeholder")}
                                 {...register("profile.nickname")}
                             />
                             {errors.profile?.nickname && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {errors.profile?.nickname.message}
+                                    {t(errors.profile?.nickname.message?.split("$")[0] as string, { min: errors.profile?.nickname.message?.split("$")[1] })}
                                 </p>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signup.form.field.phone_number.label")}</Label>
+                        <Label className="text-md">{t("signup:sect_main.form.field.phone_number.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground bg-muted!"
                                 type="text"
-                                placeholder={t("auth:signup.form.field.phone_number.placeholder")}
+                                placeholder={t("signup:sect_main.form.field.phone_number.placeholder")}
                                 {...register("profile.phone_number")}
                             />
                             {errors.profile?.phone_number && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {errors.profile?.phone_number.message}
+                                    {t(errors.profile?.phone_number.message?.split("$")[0] as string, { min: errors.profile?.phone_number.message?.split("$")[1] })}
                                 </p>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signup.form.field.dob.label")}</Label>
+                        <Label className="text-md">{t("signup:sect_main.form.field.dob.label")}</Label>
                         <div>
                             <Controller
                                 control={control}
@@ -128,7 +128,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                                             <Button className="bg-muted! text-muted-foreground! text-sm! justify-between! border-border! focus:border-ring! focus:text-accent! data-[state=open]:border-ring! data-[state=open]:text-accent! ring-0! outline-none! w-full">
                                                 {field.value
                                                     ? format(field.value, "dd/MM/yyyy")
-                                                    : t("auth:signup.form.field.dob.placeholder")}
+                                                    : t("signup:sect_main.form.field.dob.placeholder")}
                                                 <ChevronDownIcon size="100%" />
                                             </Button>
                                         </PopoverTrigger>
@@ -155,7 +155,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
 
                             {errors.profile?.dob && (
                                 <p className="text-xs text-destructive pt-1">
-                                    {errors.profile?.dob.message}
+                                    {t(errors.profile?.dob.message?.split("$")[0] as string, { age: errors.profile?.dob.message?.split("$")[1] })}
                                 </p>
                             )}
                         </div>
@@ -166,8 +166,15 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
                         type="submit"
                         disabled={loading}
                     >
-                        {loading ? t("auth:signup.form.button.submit.loading") : t("auth:signup.form.button.submit.idle")}
+                        {loading ? t("signup:sect_main.form.button.submit.loading") : t("signup:sect_main.form.button.submit.idle")}
                     </Button>
+
+                    <a
+                        className="w-full text-secondary-foreground! text-center hover:text-accent! hover:underline! text-sm"
+                        href="/signin"
+                    >
+                        {t("signup:sect_main.form.button.signin_navigator.idle")}
+                    </a>
                 </form>
             </CardContent>
         </Card>

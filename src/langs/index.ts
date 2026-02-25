@@ -2,36 +2,40 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 // import viErrorDict from "@/langs/locales/vi/error.json";
-// import viValidationDict from "@/langs/locales/vi/validation.json";
+import viValidationDict from "@/langs/locales/vi/validation.json";
 import viHomeDict from "@/langs/locales/vi/home.json";
-import viAuthDict from "@/langs/locales/vi/auth.json";
+import viSignupDict from "@/langs/locales/vi/signup.json";
+import viSigninDict from "@/langs/locales/vi/signin.json";
 
 // import enErrorDict from "@/langs/locales/en/error.json";
 // import enValidationDict from "@/langs/locales/en/validation.json";
 import enHomeDict from "@/langs/locales/en/home.json";
-import enAuthDict from "@/langs/locales/en/auth.json";
-
+import enSigninDict from "@/langs/locales/en/signin.json";
+import enSignupDict from "@/langs/locales/en/signup.json";
 
 i18n.use(initReactI18next).init({
-    fallbackLng: "vi",
-    lng: "vi",
+    fallbackLng: "en",
+    lng: "en",
 
     resources: {
         vi: {
             // error: viErrorDict,
             // validation: viValidationDict,
             home: viHomeDict,
-            auth: viAuthDict,
+            signup: viSignupDict,
+            signin: viSigninDict,
+            validation: viValidationDict
         },
         en: {
             // error: enErrorDict,
             // validation: enValidationDict,
             home: enHomeDict,
-            auth: enAuthDict,
+            signup: enSignupDict,
+            signin: enSigninDict
         },
     },
 
-    ns: ["home", "error", "validation", "auth"],
+    ns: ["error", "validation", "hone", "signup", "signin"],
     defaultNS: "home",
 
     interpolation: {

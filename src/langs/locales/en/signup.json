@@ -1,26 +1,5 @@
 {
-    "signin": {
-        "form": {
-            "title": "Sign in",
-            "field": {
-                "username": {
-                    "label": "Username or email",
-                    "placeholder": "Username or email"
-                },
-                "password": {
-                    "label": "Password",
-                    "placeholder": "Password"
-                }
-            },
-            "button": {
-                "submit": {
-                    "idle": "Sign in",
-                    "loading": "Signing in"
-                }
-            }
-        }
-    },
-    "signup": {
+    "sect_main": {
         "form": {
             "title": "Sign up",
             "field": {
@@ -53,6 +32,9 @@
                 "submit": {
                     "idle": "Sign up",
                     "loading": "Signing up"
+                },
+                "signin_navigator": {
+                    "idle": "Already have an account?"
                 }
             }
         }

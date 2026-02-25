@@ -5,16 +5,22 @@ import { z } from "zod";
 
 export const CreateProfileSchema = z.object({
     nickname: z
-        .string()
-        .regex(/^[\p{L}0-9]+( [\p{L}0-9]+)*$/u, "Tên tài khoản chỉ được chứa chữ, số và khoảng trắng")
-        .min(3, { message: "Tên tài khóa phải có ít nhất 3 ký tự" }),
+        .string({
+            error: (issue) => issue.input === undefined ? "validation:signup.nickname.required" : "validation:signup.nickname.type"
+        })
+        .regex(/^[\p{L}0-9]+( [\p{L}0-9]+)*$/u, "validation:signup.nickname.regex")
+        .min(3, { message: `validation:signup.nickname.min$${3}` }),
     phone_number: z
-        .string()
-        .regex(/^[0-9]+$/, "Số điện thoại chỉ được chứa ký tự số")
-        .min(10, { message: "Số điện thoại phải có ít nhất 10 ký tự" })
-        .max(11, { message: "Số điện thoại không vượt quá 11 ký tự" }),
+        .string({
+            error: (issue) => issue.input === undefined ? "validation:signup.phone_number.required" : "validation:signup.phone_number.type"
+        })
+        .regex(/^[0-9]+$/, "validation:signup.phone_number.regex")
+        .min(10, { message: `validation:signup.phone_number.min$${10}` })
+        .max(11, { message: `validation:signup.phone_number.max$${11}` }),
     dob: z
-        .date()
+        .date({
+            error: (issue) => issue.input === undefined ? "validation:signup.dob.required" : "validation:signup.dob.type"
+        })
         .refine(
             (value) => {
                 const today = new Date()
@@ -28,11 +34,11 @@ export const CreateProfileSchema = z.object({
                 return age >= COMMON.MIN_AGE
             },
             {
-                message: `Tuổi phải từ ${COMMON.MIN_AGE} trở lên`,
+                message: `validation:signup.dob.refine.message$${COMMON.MIN_AGE}`,
             }
         ),
     bio: z.string().nullish(),
-    avatar_url: z.url({ message: "URL không hợp lệ" }).nullish(),
+    avatar_url: z.url({ message: "validation:signup.avatar_url.type" }).nullish(),
     address: z.string().nullish(),
     hometown: z.enum(Province).nullish(),
     education: z.string().nullish(),

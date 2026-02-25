@@ -15,7 +15,7 @@ type SigninFormProps = {
 }
 
 export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
-    const { t } = useTranslation(["auth", "error", "validation"]);
+    const { t } = useTranslation(["signin", "error", "validation"]);
 
     const {
         register,
@@ -31,54 +31,54 @@ export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
     return (
         <Card className="bg-card text-card-foreground lg:w-1/4 md:w-1/2 w-2/3 border-border shadow-border shadow-md">
             <CardHeader className="text-center text-xl">
-                <CardTitle>{t("auth:signin.form.title").toUpperCase()}</CardTitle>
+                <CardTitle>{t("signin:sect_main.form.title").toUpperCase()}</CardTitle>
             </CardHeader>
 
             <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signin.form.field.username.label")}</Label>
+                        <Label className="text-md">{t("signin:sect_main.form.field.username.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground"
                                 type="text"
-                                placeholder={t("auth:signin.form.field.username.placeholder")}
+                                placeholder={t("signin:sect_main.form.field.username.placeholder")}
                                 {...register(
                                     "usernameOrEmail",
                                     {
-                                        required: "Bắt buộc"
+                                        required: t("validation:signin.refine.message"),
+                                        minLength: {
+                                            value: 5,
+                                            message: t("validation:signin.username.min", { min: 5 }),
+                                        },
                                     },
                                 )}
                             />
                             {errors.usernameOrEmail && (
                                 <p className="text-xs text-destructive pt-1">
-                                    * {errors.usernameOrEmail.message}
+                                    {t(errors.usernameOrEmail.message as string)}
                                 </p>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full flex flex-col gap-2">
-                        <Label className="text-md">{t("auth:signin.form.field.password.label")}</Label>
+                        <Label className="text-md">{t("signin:sect_main.form.field.password.label")}</Label>
                         <div>
                             <Input
                                 className="border-border! focus:border-ring! focus:ring-2! placeholder:text-muted-foreground"
                                 type="password"
-                                placeholder={t("auth:signin.form.field.password.placeholder")}
+                                placeholder={t("signin:sect_main.form.field.password.placeholder")}
                                 {...register(
                                     "password",
                                     {
-                                        required: "Bắt buộc",
-                                        minLength: {
-                                            value: 8,
-                                            message: "Mật khẩu phải có ít nhất 8 ký tự",
-                                        },
+                                        required: t("validation:signin.password.required"),
                                     },
                                 )}
                             />
                             {errors.password && (
                                 <p className="text-xs text-destructive pt-1">
-                                    * {errors.password.message}
+                                    {t(errors.password.message as string)}
                                 </p>
                             )}
                         </div>
@@ -89,8 +89,15 @@ export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
                         type="submit"
                         disabled={loading}
                     >
-                        {loading ? t("auth:signin.form.button.submit.loading") : t("auth:signin.form.button.submit.idle")}
+                        {loading ? t("signin:sect_main.form.button.submit.loading") : t("signin:sect_main.form.button.submit.idle")}
                     </Button>
+
+                    <a
+                        className="w-full text-secondary-foreground! text-center hover:text-accent! hover:underline! text-sm"
+                        href="/signup"
+                    >
+                        {t("signin:sect_main.form.button.signup_navigator.idle")}
+                    </a>
                 </form>
             </CardContent>
         </Card>
