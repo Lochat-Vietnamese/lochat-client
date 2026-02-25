@@ -1,0 +1,73 @@
+#root {
+  flex: 1;
+}
+:root {
+  --primary: rgb(255 32 86);
+  --primary-foreground: rgb(255 255 255);
+
+  --background: rgb(255 255 255);
+  --foreground: rgb(24 24 27);
+
+  --card: rgb(255 255 255);
+  --card-foreground: rgb(24 24 27);
+
+  --popover: rgb(255 255 255);
+  --popover-foreground: rgb(24 24 27);
+
+  --secondary: rgb(246 244 245);
+  --secondary-foreground: rgb(24 24 27);
+
+  --muted: rgb(248 246 247);
+  --muted-foreground: rgb(120 113 118);
+
+  --border: rgb(232 226 229);
+  --input: rgb(232 226 229);
+
+  --accent: rgb(255 85 125);
+  --accent-foreground: rgb(255 255 255);
+
+  --destructive: rgb(225 29 72);
+  --destructive-foreground: rgb(255 255 255);
+
+  --ring: rgb(255 85 125);
+}
+
+.dark {
+  --primary: rgb(255 32 86);
+  --primary-foreground: rgb(255 255 255);
+
+  --background: rgb(10 10 10);
+  --foreground: rgb(244 244 245);
+
+  --card: rgb(26 24 27);
+  --card-foreground: rgb(244 244 245);
+
+  --popover: rgb(26 24 27);
+  --popover-foreground: rgb(244 244 245);
+
+  --secondary: rgb(42 36 39);
+  --secondary-foreground: rgb(244 244 245);
+
+  --muted: rgb(42 36 39);
+  --muted-foreground: rgb(170 163 168);
+
+  --border: rgb(70 60 65);
+  --input: rgb(70 60 65);
+
+  --accent: rgb(255 106 142);
+  --accent-foreground: rgb(10 10 12);
+
+  --destructive: rgb(255 85 110);
+  --destructive-foreground: rgb(10 10 12);
+
+  --ring: rgb(255 106 142);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}

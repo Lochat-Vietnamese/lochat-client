@@ -1,0 +1,58 @@
+{
+    "signin": {
+        "username": {
+            "type": "Tên đăng nhập không hợp lệ",
+            "regex": "Tên đăng nhập chỉ được chứa chữ và số",
+            "min": "Tên đăng nhập phải có ít nhất {{min}} ký tự"
+        },
+        "email": {
+            "type": "Email không hợp lệ"
+        },
+        "password": {
+            "required": "Mật khẩu không được để trống"
+        },
+        "refine": {
+            "message": "Phải nhập username hoặc email"
+        }
+    },
+    "signup": {
+        "username": {
+            "type": "Tên đăng nhập không hợp lệ",
+            "regex": "Tên đăng nhập chỉ được chứa chữ và số",
+            "min": "Tên đăng nhập phải có ít nhất {{min}} ký tự",
+            "required": "Tên đăng nhập không được để trống"
+        },
+        "email": {
+            "type": "Email không hợp lệ",
+            "required": "Email không được để trống"
+        },
+        "password": {
+            "type": "Mật khẩu không hợp lệ",
+            "min": "Mật khẩu phải có ít nhất {{min}} ký tự",
+            "required": "Mật khẩu không được để trống"
+        },
+        "nickname": {
+            "type": "Tên tài khoản không hợp lệ",
+            "required": "Tên tài khoản không được để trống",
+            "min": "Tên tài khoản phải có ít nhất {{min}} ký tự",
+            "regex": "Tên tài khoản chỉ được chứa chữ, số và khoảng trắng"
+        },
+        "phone_number": {
+            "type": "Số điện thoại không hợp lệ",
+            "regex": "Số điện thoại chỉ được chứa ký tự số",
+            "min": "Số điện thoại phải có ít nhất {{min}} ký tự",
+            "max": "Số điện thoại không vượt quá {{min}} ký tự",
+            "required": "Số điện thoại không được để trống"
+        },
+        "dob": {
+            "type": "Ngày sinh không hợp lệ",
+            "required": "Ngày sinh không được để trống",
+            "refine": {
+                "message": "Phải trên {{age}} tuổi"
+            }
+        },
+        "avatar_url": {
+            "type": "URL khóng hợp lệ"
+        }
+    }
+}

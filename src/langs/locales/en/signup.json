@@ -1,0 +1,42 @@
+{
+    "sect_main": {
+        "form": {
+            "title": "Sign up",
+            "field": {
+                "username": {
+                    "label": "Username",
+                    "placeholder": "Username"
+                },
+                "email": {
+                    "label": "Email",
+                    "placeholder": "Email"
+                },
+                "password": {
+                    "label": "Password",
+                    "placeholder": "Password"
+                },
+                "nickname": {
+                    "label": "Nickname",
+                    "placeholder": "Nickname"
+                },
+                "phone_number": {
+                    "label": "Phone number",
+                    "placeholder": "Phone number"
+                },
+                "dob": {
+                    "label": "Date of birth",
+                    "placeholder": "Select date of birth"
+                }
+            },
+            "button": {
+                "submit": {
+                    "idle": "Sign up",
+                    "loading": "Signing up"
+                },
+                "signin_navigator": {
+                    "idle": "Already have an account?"
+                }
+            }
+        }
+    }
+}

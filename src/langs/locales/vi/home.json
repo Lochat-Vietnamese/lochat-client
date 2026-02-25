@@ -1,0 +1,14 @@
+{
+    "menu": {
+        "name": "Lochat",
+        "navigator": {
+            "introduction": "Giới thiệu",
+            "projects": "Dự án",
+            "langs_dropdown_label": "Chọn ngôn ngữ",
+            "auth_actions": {
+                "signin": "Đăng nhập",
+                "signup": "Đăng ký"
+            }
+        }
+    }
+}

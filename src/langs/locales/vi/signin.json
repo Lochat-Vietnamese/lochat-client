@@ -1,0 +1,26 @@
+{
+    "sect_main": {
+        "form": {
+            "title": "Đăng nhập",
+            "field": {
+                "username": {
+                    "label": "Tên đăng nhập hoặc email",
+                    "placeholder": "Tên đăng nhập hoặc email"
+                },
+                "password": {
+                    "label": "Mật khẩu",
+                    "placeholder": "Mật khẩu"
+                }
+            },
+            "button": {
+                "submit": {
+                    "idle": "Đăng nhập",
+                    "loading": "Đang đăng nhập"
+                },
+                "signup_navigator": {
+                    "idle": "Chưa có tài khoản?"
+                }
+            }
+        }
+    }
+}

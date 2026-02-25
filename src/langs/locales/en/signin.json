@@ -1,0 +1,26 @@
+{
+    "sect_main": {
+        "form": {
+            "title": "Sign in",
+            "field": {
+                "username": {
+                    "label": "Username or email",
+                    "placeholder": "Username or email"
+                },
+                "password": {
+                    "label": "Password",
+                    "placeholder": "Password"
+                }
+            },
+            "button": {
+                "submit": {
+                    "idle": "Sign in",
+                    "loading": "Signing in"
+                },
+                "signup_navigator": {
+                    "idle": "Don't have an account?"
+                }
+            }
+        }
+    }
+}
