@@ -1,9 +1,13 @@
+import { useAuthStore } from "@/app/store/useAuthStore";
 import { SigninForm } from "@/modules/auth/components/SigninForm";
 import { useSignin } from "@/modules/auth/hooks/useSignin";
 import { SigninSchema } from "@/modules/auth/schemas/signin.schema";
+import { useNavigate } from "react-router-dom";
 
 export const SigninPage = () => {
     const { mutate, isPending } = useSignin();
+    const setAccount = useAuthStore((state) => state.setAccount);
+    const navigate = useNavigate();
 
     const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -28,7 +32,9 @@ export const SigninPage = () => {
         
         mutate(payload, {
             onSuccess: (data) => {
-                console.log(data);
+                const fetchResult = data.data;
+                setAccount(fetchResult.data);
+                navigate("/chat");
             },
             onError: (error) => {
                 console.log(error);

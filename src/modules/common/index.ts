@@ -1,4 +1,6 @@
 export * from "@/modules/common/schemas/profile.schema";
+export * from "@/modules/common/schemas/conversation.schema";
+export * from "@/modules/common/schemas/profileConversation.schema";
 export * from "@/modules/common/types/account.type";
 export * from "@/modules/common/types/apiRespone.type";
 export * from "@/modules/common/types/conversation.type";

@@ -6,7 +6,7 @@ export interface MessageResponse {
     conversation: ConversationResponse;
     sender: MembershipResponse;
     type: MessageType;
-    content: string | null;
-    media: MediaResponse | null;
-    reply: string | null;
+    content?: string | null;
+    media?: MediaResponse | null;
+    reply?: string | null;
 }

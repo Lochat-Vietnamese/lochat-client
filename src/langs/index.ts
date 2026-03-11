@@ -8,7 +8,7 @@ import viSignupDict from "@/langs/locales/vi/signup.json";
 import viSigninDict from "@/langs/locales/vi/signin.json";
 
 // import enErrorDict from "@/langs/locales/en/error.json";
-// import enValidationDict from "@/langs/locales/en/validation.json";
+import enValidationDict from "@/langs/locales/en/validation.json";
 import enHomeDict from "@/langs/locales/en/home.json";
 import enSigninDict from "@/langs/locales/en/signin.json";
 import enSignupDict from "@/langs/locales/en/signup.json";
@@ -20,15 +20,14 @@ i18n.use(initReactI18next).init({
     resources: {
         vi: {
             // error: viErrorDict,
-            // validation: viValidationDict,
+            validation: viValidationDict,
             home: viHomeDict,
             signup: viSignupDict,
             signin: viSigninDict,
-            validation: viValidationDict
         },
         en: {
             // error: enErrorDict,
-            // validation: enValidationDict,
+            validation: enValidationDict,
             home: enHomeDict,
             signup: enSignupDict,
             signin: enSigninDict

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { CreateProfileSchema } from "@/modules/common";
+import { ProfileSchema } from "@/modules/common";
 
 export const SignupSchema = z.object({
     username: z
@@ -20,7 +20,7 @@ export const SignupSchema = z.object({
         .email({
             error: (issue) => issue.input === undefined ? "validation:signup.email.required" : "validation:signup.email.type"
         }),
-    profile: CreateProfileSchema
+    profile: ProfileSchema
 });
 
 export type SignupType = z.infer<typeof SignupSchema>;

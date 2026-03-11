@@ -3,7 +3,7 @@ import type { MembershipResponse } from "@/modules/common";
 
 export interface MediaResponse {
     id: string;
-    uploader: MembershipResponse | null;
+    uploader?: MembershipResponse | null;
     name: string;
     type: MediaType;
     size: number;

@@ -3,7 +3,7 @@ import { Province } from "@/enums/province.enum";
 import { z } from "zod";
 
 
-export const CreateProfileSchema = z.object({
+export const ProfileSchema = z.object({
     nickname: z
         .string({
             error: (issue) => issue.input === undefined ? "validation:signup.nickname.required" : "validation:signup.nickname.type"
@@ -46,4 +46,4 @@ export const CreateProfileSchema = z.object({
     hobbies: z.string().nullish(),
 })
 
-export type CreateProfileType = z.infer<typeof CreateProfileSchema>
+export type ProfileType = z.infer<typeof ProfileSchema>

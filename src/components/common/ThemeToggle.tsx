@@ -1,9 +1,10 @@
 import { useTheme } from "@/app/provider/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
+import type { ComponentProps } from "react";
 
-type ThemeToggleProps = React.ComponentProps<typeof Button> & {
-    buttonIconProps?: React.ComponentProps<typeof Sun>;
+type ThemeToggleProps = ComponentProps<typeof Button> & {
+    buttonIconProps?: ComponentProps<typeof Sun>;
 }
 
 export const ThemeToggle = ({

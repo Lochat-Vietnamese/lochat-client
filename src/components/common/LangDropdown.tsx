@@ -10,13 +10,14 @@ import {
     DropdownMenuItem,
     DropdownMenu
 } from "@/components/ui/dropdown-menu";
+import type { ComponentProps } from "react";
 
-type LangDropdownProps = React.ComponentProps<typeof Button> & {
-    buttonIconProps?: React.ComponentProps<typeof Globe>;
-    dropdownMenuContentProps?: React.ComponentProps<typeof DropdownMenuContent>;
-    dropdownMenuGroupProps?: React.ComponentProps<typeof DropdownMenuGroup>;
-    dropdownMenuLabelProps?: React.ComponentProps<typeof DropdownMenuLabel>;
-    dropdownMenuItemProps?: React.ComponentProps<typeof DropdownMenuItem>;
+type LangDropdownProps = ComponentProps<typeof Button> & {
+    buttonIconProps?: ComponentProps<typeof Globe>;
+    dropdownMenuContentProps?: ComponentProps<typeof DropdownMenuContent>;
+    dropdownMenuGroupProps?: ComponentProps<typeof DropdownMenuGroup>;
+    dropdownMenuLabelProps?: ComponentProps<typeof DropdownMenuLabel>;
+    dropdownMenuItemProps?: ComponentProps<typeof DropdownMenuItem>;
 }
 
 export const LangDropdown = ({
