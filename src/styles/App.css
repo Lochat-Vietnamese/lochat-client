@@ -75,8 +75,11 @@ a:focus {
 }
 
 * {
-  transition: all 0.2s ease-in-out;
-  transform-origin: center;
   scrollbar-width:thin;
   scrollbar-color: var(--muted-foreground) var(--muted);
+}
+
+.transition-basic {
+  transition: all 0.2s ease-in-out;
+  transform-origin: center;
 }

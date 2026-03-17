@@ -3,4 +3,6 @@ export const ROUTES = {
     SIGNIN: "/signin",
     SIGNUP: "/signup",
     CHAT: "/chat",
+    NOT_FOUND: "*",
+    USER: "/user",
 };

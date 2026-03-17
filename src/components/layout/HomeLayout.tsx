@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 
 export const HomeLayout = () => {
     const { t } = useTranslation(["home"]);
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-background">
@@ -23,19 +24,19 @@ export const HomeLayout = () => {
                     <NavigationMenu className="flex gap-4 items-center">
                         <NavigationMenuList>
                             <NavigationMenuItem className="mr-4">
-                                <NavigationMenuLink className="bg-transparent! font-semibold! text-foreground! text-xl" href="/">
+                                <NavigationMenuLink className="bg-transparent! font-semibold! text-foreground! text-xl" onClick={() => navigate("/")}>
                                     {t("home:menu.name")}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
 
                             <NavigationMenuItem>
-                                <NavigationMenuLink className="bg-transparent! hover:text-primary! text-foreground! text-md" href="#">
+                                <NavigationMenuLink className="bg-transparent! hover:text-primary! text-foreground! text-md" onClick={() => navigate("#")}>
                                     {t("home:menu.navigator.introduction")}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
 
                             <NavigationMenuItem>
-                                <NavigationMenuLink className="bg-transparent! hover:text-primary! text-foreground! text-md" href="#">
+                                <NavigationMenuLink className="bg-transparent! hover:text-primary! text-foreground! text-md" onClick={() => navigate("#")}>
                                     {t("home:menu.navigator.projects")}
                                 </NavigationMenuLink>
                             </NavigationMenuItem>
@@ -67,7 +68,7 @@ export const HomeLayout = () => {
                                     <DropdownMenuContent className="bg-popover">
                                         <DropdownMenuGroup>
                                             <DropdownMenuItem className="hover:bg-muted! hover:text-accent! text-foreground!">
-                                                <a className="text-inherit! flex items-center gap-2 w-full h-full" href="/signin">
+                                                <a className="text-inherit! flex items-center gap-2 w-full h-full" onClick={() => navigate("/signin")}>
                                                     <UserRoundCheck size="100%" className="text-inherit" />
                                                     <span>
                                                         {t("home:menu.navigator.auth_actions.signin")}
@@ -75,7 +76,7 @@ export const HomeLayout = () => {
                                                 </a>
                                             </DropdownMenuItem>
                                             <DropdownMenuItem className="hover:bg-muted! hover:text-accent! text-foreground!">
-                                                <a className="text-inherit! flex items-center gap-2 w-full h-full" href="/signup">
+                                                <a className="text-inherit! flex items-center gap-2 w-full h-full" onClick={() => navigate("/signup")}>
                                                     <UserRoundPen size="100%" className="text-inherit" />
                                                     <span>
                                                         {t("home:menu.navigator.auth_actions.signup")}

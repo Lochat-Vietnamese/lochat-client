@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 
 type SigninFormProps = {
@@ -16,6 +17,7 @@ type SigninFormProps = {
 
 export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
     const { t } = useTranslation(["signin", "error", "validation"]);
+    const navigate = useNavigate();
 
     const {
         register,
@@ -94,7 +96,7 @@ export const SigninForm = ({ loading, onSubmit }: SigninFormProps) => {
 
                     <a
                         className="w-full text-secondary-foreground! text-center hover:text-accent! hover:underline! text-sm"
-                        href="/signup"
+                        onClick={() => navigate("/signup")}
                     >
                         {t("signin:sect_main.form.button.signup_navigator.idle")}
                     </a>

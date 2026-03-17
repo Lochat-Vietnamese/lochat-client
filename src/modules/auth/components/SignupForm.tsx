@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import { SignupSchema } from "@/modules/auth/schemas/signup.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 type SignupFormProps = {
     loading: boolean;
@@ -19,7 +20,7 @@ type SignupFormProps = {
 
 export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
     const { t } = useTranslation(["auth", "error", "validation"]);
-
+    const navigate = useNavigate();
     const { register, handleSubmit, control, formState: { errors } } = useForm<SignupRequest>({
         resolver: zodResolver(SignupSchema),
     });
@@ -171,7 +172,7 @@ export const SignupForm = ({ loading, onSubmit }: SignupFormProps) => {
 
                     <a
                         className="w-full text-secondary-foreground! text-center hover:text-accent! hover:underline! text-sm"
-                        href="/signin"
+                        onClick={() => navigate("/signin")}
                     >
                         {t("signup:sect_main.form.button.signin_navigator.idle")}
                     </a>

@@ -32,7 +32,9 @@ export const ConversationList = ({ className }: ConversationListProps) => {
                 : <div className={cn("w-full h-fit flex flex-col gap-4 justify-start px-2", className)}>
                     {
                         data?.data.data.length === 0 ?
-                            <div className="w-full flex justify-center items-center text-muted-foreground">Chưa có cuộc trò chuyện nào</div>
+                            <div className="">
+                                <div className="w-full flex justify-center items-center text-muted-foreground">Chưa có cuộc trò chuyện nào</div>
+                            </div>
                             :
                             data?.data.data.map((conversation) => (
                                 <ConversationItem key={conversation.conversation.id} avatarUrl={conversation.conversation.avatar_url} conversationName={conversation.conversation.title} lastMessage={conversation.last_accessed}></ConversationItem>

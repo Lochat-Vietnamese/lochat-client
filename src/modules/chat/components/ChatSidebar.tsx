@@ -4,11 +4,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Settings, UserRoundPlus } from "lucide-react";
 import { ConversationList } from "@/modules/chat";
+import { useNavigate } from "react-router-dom";
 
 type ChatSidebarProps = {
     className?: string
 }
 export const ChatSidebar = ({ className }: ChatSidebarProps) => {
+    const navigate = useNavigate();
+
     return (
         <div className={cn("w-full h-full flex flex-col justify-between items-center bg-card text-card-foreground", className)}>
             <div className="w-full p-2 flex-2 flex flex-col justify-between items-center gap-2 ring-1 ring-muted">
@@ -20,7 +23,7 @@ export const ChatSidebar = ({ className }: ChatSidebarProps) => {
                         </Avatar>
                         <div className="text-3xl font-semibold">Lochat</div>
                     </div>
-                    <Button className="p-0! rounded-full! text-card-foreground! data-[state=open]:text-accent! bg-card! outline-none! border-none! ring-1! ring-secondary-foreground! data-[state=open]:ring-accent! hover:ring-accent! hover:text-accent! aspect-square">
+                    <Button onClick={() => navigate("/user")} className="p-0! rounded-full! text-card-foreground! data-[state=open]:text-accent! bg-card! outline-none! border-none! ring-1! ring-secondary-foreground! data-[state=open]:ring-accent! hover:ring-accent! hover:text-accent! aspect-square">
                         <UserRoundPlus size="100%" className="bg-transparent" />
                     </Button>
                 </div>

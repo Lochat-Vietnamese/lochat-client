@@ -11,7 +11,7 @@ type ConversationItemProps = {
 
 export const ConversationItem = ({ className, isOpeningChat, avatarUrl, conversationName, lastMessage }: ConversationItemProps) => {
     return (
-        <div className={cn("p-4 border-none ring-1 w-full h-fit flex gap-2 items-center rounded-xl shadow-accent hover:scale-105", className, isOpeningChat && "ring-accent shadow-sm", !isOpeningChat && "ring-border shadow-none")}>
+        <div className={cn("p-4 border-none ring-1 w-full h-fit flex gap-2 items-center rounded-xl shadow-accent hover:scale-105 transition-basic", className, isOpeningChat && "ring-accent shadow-sm", !isOpeningChat && "ring-border shadow-none")}>
             <Avatar>
                 <AvatarFallback>{conversationName + "_avatar"}</AvatarFallback>
                 <AvatarImage src={avatarUrl || "https://github.com/shadcn.png"} alt={conversationName + "_avatar"} />
