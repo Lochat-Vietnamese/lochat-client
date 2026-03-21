@@ -8,7 +8,7 @@ export const ChatLayout = () => {
                 <aside className="hidden md:flex flex-col w-1/4 rounded-xl ring-border ring-1 overflow-hidden">
                     <ChatSidebar />
                 </aside>
-                <main className="flex-1 flex items-center justify-center bg-card rounded-xl ring-border ring-1 text-card-foreground">
+                <main className="flex-1 flex items-center justify-center bg-card rounded-xl ring-border ring-1 text-card-foreground overflow-hidden">
                     <Outlet />
                 </main>
             </div>

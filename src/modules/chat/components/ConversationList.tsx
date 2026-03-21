@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 import { ConversationItem } from "@/modules/chat/components/ConversationItem";
 import { useLoadProfileConversation } from "../hooks/useLoadProfileConversation";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAuthStore } from "@/app/store/useAuthStore";
+import { useLocation, useNavigate } from "react-router-dom";
 
 type ConversationListProps = {
     className?: string
@@ -10,7 +11,15 @@ type ConversationListProps = {
 
 export const ConversationList = ({ className }: ConversationListProps) => {
     const [currentPage, setCurrentPage] = useState(1);
+    const [selectedId, setSelectedId] = useState<string | null>(null)
     const account = useAuthStore((state) => state.account);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        setSelectedId(location.pathname.split("/").pop() ?? null);
+    }, [location.pathname]);
+
     const { data, isLoading, error } = useLoadProfileConversation({
         profile_id: account?.profile.id ?? "",
         page: currentPage,
@@ -18,28 +27,51 @@ export const ConversationList = ({ className }: ConversationListProps) => {
         is_active: true
     });
 
-    return (
+    const sortedMemberships = useMemo(() => {
+        const memberships = data?.data ?? []
+        return [...memberships].sort(
+            (a, b) => Number(new Date(b.last_accessed)) - Number(new Date(a.last_accessed))
+        )
+    }, [data?.data]);
 
-        isLoading ?
-            <div className="h-full w-full flex justify-center items-center">
-                <div className="text-primary">
-                    {account?.profile.id}
-                </div>
+    const chatContentNavigate = (id: string) => {
+        navigate(`/chat/${id}`)
+    }
+
+    return (
+        <div className={cn(
+            "h-full w-full flex justify-center items-center",
+            className,
+            sortedMemberships.length > 0 && "h-fit flex-col gap-4 justify-start px-2 items-start")}>
+            {
+                isLoading &&
                 <div className="h-8 w-8 border-2 border-secondary border-t-transparent rounded-full animate-spin" />
-            </div>
-            : error ?
-                <div className="h-full w-full flex justify-center items-center">{error.message}</div>
-                : <div className={cn("w-full h-fit flex flex-col gap-4 justify-start px-2", className)}>
-                    {
-                        data?.data.data.length === 0 ?
-                            <div className="">
-                                <div className="w-full flex justify-center items-center text-muted-foreground">Chưa có cuộc trò chuyện nào</div>
-                            </div>
-                            :
-                            data?.data.data.map((conversation) => (
-                                <ConversationItem key={conversation.conversation.id} avatarUrl={conversation.conversation.avatar_url} conversationName={conversation.conversation.title} lastMessage={conversation.last_accessed}></ConversationItem>
-                            ))
-                    }
-                </div>
+            }
+            {
+                error && error.message
+            }
+            {
+                sortedMemberships.length === 0 ? (
+                    <div className="">
+                        <div className="w-full flex justify-center items-center text-muted-foreground">
+                            Chưa có cuộc trò chuyện nào
+                        </div>
+                    </div>
+                ) : (
+                    sortedMemberships.map((membership) => (
+                        <ConversationItem
+                            isOpeningChat={selectedId === membership.conversation.id}
+                            onClick={() => {
+                                chatContentNavigate(membership.conversation.id)
+                            }}
+                            key={membership.conversation.id}
+                            avatarUrl={membership.conversation.avatar_url}
+                            conversationName={membership.conversation.title}
+                            lastMessage={membership.last_accessed}
+                        />
+                    ))
+                )
+            }
+        </div>
     );
 };

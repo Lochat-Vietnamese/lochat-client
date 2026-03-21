@@ -1,4 +1,5 @@
 import { useAuthStore } from "@/app/store/useAuthStore";
+import { isEmail } from "@/helpers/isEmail.helper";
 import { SigninForm } from "@/modules/auth/components/SigninForm";
 import { useSignin } from "@/modules/auth/hooks/useSignin";
 import { SigninSchema } from "@/modules/auth/schemas/signin.schema";
@@ -8,8 +9,6 @@ export const SigninPage = () => {
     const { mutate, isPending } = useSignin();
     const setAccount = useAuthStore((state) => state.setAccount);
     const navigate = useNavigate();
-
-    const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
     const onSubmitHandler = (data: {
         usernameOrEmail: string;

@@ -83,3 +83,26 @@ a:focus {
   transition: all 0.2s ease-in-out;
   transform-origin: center;
 }
+
+
+/* width mỏng */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* nền track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* thanh kéo */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+/* hover mới rõ */
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
